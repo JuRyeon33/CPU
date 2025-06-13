@@ -26,6 +26,10 @@ class CPU {
                 case LOAD:
                     register = memory[operand];
                     System.out.println("MOV : Loading memory[" + operand + " (" + memory[0] + ") into register.");
+                    break;
+                case SAVE:
+                    memory[operand] = register;
+                    System.out.println("SAVE : Saving memory[" + operand + " (" + memory[0] + ") into register.");
             }
         }
     }

@@ -30,7 +30,24 @@ class CPU {
                 case SAVE:
                     memory[operand] = register;
                     System.out.println("SAVE : Saving memory[" + operand + " (" + memory[0] + ") into register.");
+                    break;
+                case ADD:
+                    register += memory[operand];
+                    System.out.println("ADD: Adding memory[" + operand + "] (" + memory[operand] + ") to register. New register value: " + register);
+                    break;
+                case SUB:
+                    register -= memory[operand];
+                    System.out.println("SUB: Subtracting memory[" + operand + "] (" + memory[operand] + ") from register. New register value: " + register);
+                    break;
+                case HALT:
+                    System.out.println("HALT : Stopping program execution.");
+                    return;
+                default:
+                    System.out.println("Unknown instruction. Halting.");
+                    return;
             }
+
+            pc++;
         }
     }
 }
